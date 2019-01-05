@@ -1551,6 +1551,9 @@ static const HChar *name_for_fcntl(UWord cmd) {
 #     if DARWIN_VERS >= DARWIN_10_14
 	  F(F_CHECK_LV);
 #     endif
+#     if DARWIN_VERS >= DARWIN_10_14
+      F(F_CHECK_LV);
+#     endif
    default:
 	  return "UNKNOWN";
    }
@@ -1756,6 +1759,12 @@ PRE(fcntl)
 	  break;
 #  endif
 
+#  if DARWIN_VERS >= DARWIN_10_14
+   case VKI_F_CHECK_LV: /* Check if Library Validation allows this Mach-O file to be
+                           mapped into the calling process */
+      // FIXME: Dejan
+      break;
+#  endif
    default:
 	  PRINT("fcntl ( %lu, %lu [??] )", ARG1, ARG2);
 	  log_decaying("UNKNOWN fcntl %lu!", ARG2);

@@ -646,6 +646,10 @@ DECL_TEMPLATE(darwin, ulock_wake);                  // 516
 // NYI ntp_gettime                                  // 528
 // NYI os_fault_with_payload                        // 529
 #endif /* DARWIN_VERS >= DARWIN_10_13 */
+#if DARWIN_VERS >= DARWIN_10_14
+// NYI kqueue_workloop_ctl                          // 530
+// NYI __mach_bridge_remote_time                    // 531
+#endif /* DARWIN_VERS >= DARWIN_10_14 */
 
 // Mach message helpers
 DECL_TEMPLATE(darwin, mach_port_set_context);

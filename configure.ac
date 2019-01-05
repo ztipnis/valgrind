@@ -452,7 +452,7 @@ case "${host_os}" in
                   ;;
              *) 
 		  AC_MSG_RESULT([unsupported (${kernel})])
-		  AC_MSG_ERROR([Valgrind works on Darwin 10.x, 11.x, 12.x, 13.x, 14.x, 15.x, 16.x and 17.x (Mac OS X 10.6/7/8/9/10/11 and macOS 10.12/13/14)])
+		  AC_MSG_ERROR([Valgrind works on Darwin 10.x-18.x (Mac OS X 10.6-11 and macOS 10.12-14)])
 		  ;;
 	esac
         ;;
