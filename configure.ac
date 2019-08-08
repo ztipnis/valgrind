@@ -450,7 +450,13 @@ case "${host_os}" in
                   DEFAULT_SUPP="darwin18.supp ${DEFAULT_SUPP}"
                   DEFAULT_SUPP="darwin10-drd.supp ${DEFAULT_SUPP}"
                   ;;
-             *) 
+	     19.*)
+                  AC_MSG_RESULT([Darwin 18.x (${kernel}) / macOS 10.14 Mojave])
+                  AC_DEFINE([DARWIN_VERS], DARWIN_10_14, [Darwin / Mac OS X version])
+                  DEFAULT_SUPP="darwin18.supp ${DEFAULT_SUPP}"
+                  DEFAULT_SUPP="darwin10-drd.supp ${DEFAULT_SUPP}"
+                  ;;
+	        *) 
 		  AC_MSG_RESULT([unsupported (${kernel})])
 		  AC_MSG_ERROR([Valgrind works on Darwin 10.x-18.x (Mac OS X 10.6-11 and macOS 10.12-14)])
 		  ;;
