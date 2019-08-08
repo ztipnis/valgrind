@@ -152,7 +152,7 @@ mach_server_srcs += \
         m_mach/thread_actServer.c \
         m_mach/vm_mapServer.c
 mach_hdrs += \
-	m_mach/mach_vm.h \
+		/usr/include/mach/mach_vm.h \
         m_mach/task.h \
         m_mach/thread_act.h \
         m_mach/vm_map.h
