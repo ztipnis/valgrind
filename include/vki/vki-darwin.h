@@ -1139,9 +1139,9 @@ struct ByteRangeLockPB2
    but no 'struct ucontext' beats me. -- JRS */
 
 #if __DARWIN_UNIX03
-#define vki_ucontext        struct __darwin_ucontext
+#define vki_ucontext __darwin_ucontext
 #else /* !__DARWIN_UNIX03 */
-#define vki_ucontext        struct ucontext
+#define vki_ucontext ucontext
 #endif
 
 
