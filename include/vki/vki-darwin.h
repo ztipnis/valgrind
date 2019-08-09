@@ -1045,16 +1045,12 @@ struct ByteRangeLockPB2
 #define VKI_BIOCSRTIMEOUT   BIOCSRTIMEOUT
 #define VKI_BIOCGDLTLIST    BIOCGDLTLIST
 
-// It looks like apple removed 32bit types from the kernel, and merged 64bit and 32bit types into a single type.
+// sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 
-#define user64_sigaltstack user_sigaltstack 
-#define user32_sigaltstack user_sigaltstack 
-
-struct  user_sigaltstack {
-   user_addr_t  ss_sp;      /* signal stack base */
-   user_size_t  ss_size; /* signal stack length */
-   int      ss_flags;   /* SA_DISABLE and/or SA_ONSTACK */
-};
+#define user64_sigaltstack __darwin_sigaltstack
+#define user32_sigaltstack __darwin_sigaltstack
+//the types are all stored here
+#include <sys/signal.h>
 
 //it was needed for this file, so now its there!
 #include <sys/ucontext.h>
