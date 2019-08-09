@@ -161,8 +161,7 @@ mach_defs += \
 	/usr/include/mach/mach_vm.defs \
         /usr/include/mach/task.defs \
         /usr/include/mach/thread_act.defs \
-        /usr/include/mach/vm_map.defs \
-        /usr/include/mach/mach_types.defs
+        /usr/include/mach/vm_map.defs
 
 endif
 
