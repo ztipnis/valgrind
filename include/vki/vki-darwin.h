@@ -1,4 +1,4 @@
-#define mach_port_t __mach_port_t__
+//#define mach_port_t __mach_port_t__
 #include <pthread.h>
 #include <sys/signal.h>
 struct sigevent_valg {
@@ -11,7 +11,7 @@ struct sigevent_valg {
 #define sigevent sigevent_valg
 #include <sys/aio.h>
 #undef sigevent
-#undef mach_port_t
+//#undef mach_port_t
 #include <stdint.h>
 #include <sys/types.h>
 #include <malloc/malloc.h>
