@@ -541,6 +541,7 @@ endif
 
 if VGCONF_OS_IS_DARWIN
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS += -I[[kern]]/
+	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS += -I[[kern]]/
 endif
 #----------------------------------------------------------------------------
 # libreplacemalloc_toolpreload-<platform>.a
