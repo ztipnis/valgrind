@@ -404,7 +404,6 @@ COREGRIND_SOURCES_COMMON = \
 	m_initimg/initimg-solaris.c \
 	m_initimg/initimg-pathscan.c \
 	m_mach/mach_basics.c \
-	m_mach/mach_msg.c \
 	m_mach/mach_traps-x86-darwin.S \
 	m_mach/mach_traps-amd64-darwin.S \
 	m_replacemalloc/replacemalloc_core.c \
