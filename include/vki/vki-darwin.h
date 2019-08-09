@@ -1114,6 +1114,14 @@ struct ByteRangeLockPB2
 #define VKI_A_GETSINFO_ADDR A_GETSINFO_ADDR
 #endif
 
+
+struct sigevent {
+   int                             sigev_notify;                           /* Notification type */
+   int                             sigev_signo;                            /* Signal number */
+   union sigval    sigev_value;                            /* Signal value */
+   void                    (*sigev_notify_function)(union sigval);   /* Notification function */
+   pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
+};
 #include <sys/aio.h>
 
 #define vki_aiocb aiocb
