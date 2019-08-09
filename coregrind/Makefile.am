@@ -540,10 +540,9 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
 
-if VGCONF_OS_IS_DARWIN
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS += -I[[kern]]/
 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS += -I[[kern]]/
-endif
+	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS += -I[[kern]]/
 #----------------------------------------------------------------------------
 # libreplacemalloc_toolpreload-<platform>.a
 #----------------------------------------------------------------------------
