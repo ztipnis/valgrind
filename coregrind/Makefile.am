@@ -89,6 +89,7 @@ if VGCONF_OS_IS_DARWIN
 # having access to Darwin, 'none' implementation is used.
 vgdb_SOURCES += vgdb-invoker-none.c
 valgrind_CFLAGS += -I[[kern]]/
+valgrind_CPPFLAGS += -I[[kern]]/
 endif
 if VGCONF_OS_IS_SOLARIS
 vgdb_SOURCES += vgdb-invoker-solaris.c
