@@ -1,3 +1,4 @@
+#undef mach_port_t
 #include <pthread.h>
 #include <sys/signal.h>
 struct sigevent_valg {
