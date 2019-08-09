@@ -1050,6 +1050,12 @@ struct ByteRangeLockPB2
 #define user64_sigaltstack user_sigaltstack 
 #define user32_sigaltstack user_sigaltstack 
 
+struct  user_sigaltstack {
+   user_addr_t  ss_sp;      /* signal stack base */
+   user_size_t  ss_size; /* signal stack length */
+   int      ss_flags;   /* SA_DISABLE and/or SA_ONSTACK */
+};
+
 //it was needed for this file, so now its there!
 #include <sys/ucontext.h>
 
