@@ -1047,6 +1047,7 @@ struct ByteRangeLockPB2
 
 
 //the types are all stored here
+#include <pthread.h>
 #include <sys/signal.h>
 
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
@@ -1113,7 +1114,6 @@ struct ByteRangeLockPB2
 #define VKI_A_GETSINFO_ADDR A_GETSINFO_ADDR
 #endif
 
-#include <pthread.h>
 #include <sys/aio.h>
 
 #define vki_aiocb aiocb
