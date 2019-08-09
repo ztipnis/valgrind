@@ -40,7 +40,7 @@
 #include <sys/sockio.h>
 #include <net/bpf.h>
 
-#define mach_port_t _mach_port_t_
+//#define mach_port_t _mach_port_t_
 #include <pthread.h>
 #undef mach_port_t
 #include <sys/signal.h>
