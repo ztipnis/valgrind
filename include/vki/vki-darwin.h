@@ -1113,7 +1113,7 @@ struct ByteRangeLockPB2
 #define VKI_A_GETSINFO_ADDR A_GETSINFO_ADDR
 #endif
 
-
+#include <sys/signal.h>
 #include <sys/aio.h>
 
 #define vki_aiocb aiocb
