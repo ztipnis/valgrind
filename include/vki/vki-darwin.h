@@ -1050,8 +1050,16 @@ struct ByteRangeLockPB2
 #include <sys/signal.h>
 
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
-#define user64_sigaltstack _STRUCT_SIGALTSTACK
-#define user32_sigaltstack _STRUCT_SIGALTSTACK
+#ifndef _STRUCT_SIGALTSTACK
+   #if __DARWIN_UNIX03
+      #define _STRUCT_SIGALTSTACK     struct __darwin_sigaltstack
+   #else /* !__DARWIN_UNIX03 */
+      #define _STRUCT_SIGALTSTACK     struct sigaltstack
+   #endif /* __DARWIN_UNIX03 */
+#endif
+
+typedef struct _STRUCT_SIGALTSTACK struct user64_sigaltstack;
+typedef struct _STRUCT_SIGALTSTACK struct user32_sigaltstack;
 //it was needed for this file, so now its there!
 #include <sys/ucontext.h>
 
