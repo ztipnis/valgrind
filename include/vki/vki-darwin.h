@@ -1,17 +1,3 @@
-#define mach_port_t _mach_port_t_
-#include <pthread.h>
-#undef mach_port_t
-#include <sys/signal.h>
-struct sigevent_valg {
-   int                             sigev_notify;                           /* Notification type */
-   int                             sigev_signo;                            /* Signal number */
-   union sigval    sigev_value;                            /* Signal value */
-   void                    (*sigev_notify_function)(union sigval);   /* Notification function */
-   pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
-};
-#define sigevent sigevent_valg
-#include <sys/aio.h>
-#undef sigevent
 #include <stdint.h>
 #include <sys/types.h>
 
@@ -53,6 +39,22 @@ struct sigevent_valg {
 #include <sys/filio.h>
 #include <sys/sockio.h>
 #include <net/bpf.h>
+
+#define mach_port_t _mach_port_t_
+#include <pthread.h>
+#undef mach_port_t
+#include <sys/signal.h>
+struct sigevent_valg {
+   int                             sigev_notify;                           /* Notification type */
+   int                             sigev_signo;                            /* Signal number */
+   union sigval    sigev_value;                            /* Signal value */
+   void                    (*sigev_notify_function)(union sigval);   /* Notification function */
+   pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
+};
+#define sigevent sigevent_valg
+#include <sys/aio.h>
+#undef sigevent
+
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 #ifndef user64_sigaltstack
    #if __DARWIN_UNIX03
