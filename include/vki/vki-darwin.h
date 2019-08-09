@@ -63,6 +63,7 @@
 #include <netinet/tcp.h>
 #include <netinet/in.h>
 #include <sys/kernel_types.h>
+#undef mach_port_t
 #include <sys/dtrace.h>
 
 struct sigevent_valg {
