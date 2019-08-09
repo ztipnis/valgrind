@@ -1,4 +1,16 @@
-
+#include <pthread.h>
+#include <sys/signal.h>
+struct sigevent_valg {
+   int                             sigev_notify;                           /* Notification type */
+   int                             sigev_signo;                            /* Signal number */
+   union sigval    sigev_value;                            /* Signal value */
+   void                    (*sigev_notify_function)(union sigval);   /* Notification function */
+   pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
+};
+#define sigevent sigevent_valg
+#include <sys/aio.h>
+#undef sigevent
+#undef mach_port_t
 #include <stdint.h>
 #include <sys/types.h>
 #include <malloc/malloc.h>
@@ -39,8 +51,6 @@
 #include <sys/filio.h>
 #include <sys/sockio.h>
 #include <net/bpf.h>
-#include <pthread.h>
-#include <sys/signal.h>
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 #ifndef user64_sigaltstack
    #if __DARWIN_UNIX03
@@ -63,19 +73,8 @@
 #include <netinet/tcp.h>
 #include <netinet/in.h>
 #include <sys/kernel_types.h>
-#undef mach_port_t
 #include <sys/dtrace.h>
 
-struct sigevent_valg {
-   int                             sigev_notify;                           /* Notification type */
-   int                             sigev_signo;                            /* Signal number */
-   union sigval    sigev_value;                            /* Signal value */
-   void                    (*sigev_notify_function)(union sigval);   /* Notification function */
-   pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
-};
-#define sigevent sigevent_valg
-#include <sys/aio.h>
-#undef sigevent
 /*--------------------------------------------------------------------*/
 /*--- Darwin-specific kernel interface.               vki-darwin.h ---*/
 /*--------------------------------------------------------------------*/
