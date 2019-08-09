@@ -148,7 +148,7 @@ static const char *select_arch(
    ssize_t bytes;
    int fd = open(find_client(clientname), O_RDONLY);
    if (fd < 0) {
-      barf("%s: %s", clientname, strerror(errno));
+      barf("%s: %s", clientname, strerror(*__error()));
    }
 
    bytes = read(fd, buf, sizeof(buf));
@@ -411,7 +411,7 @@ int main(int argc, char** argv, char** envp)
    /* Build the stage2 invocation, and execve it.  Bye! */
    asprintf(&toolfile, "%s/%s-%s-darwin", valgrind_lib, toolname, arch);
    if (access(toolfile, R_OK|X_OK) != 0) {
-      barf("tool '%s' not installed (%s) (%s)", toolname, toolfile, strerror(errno));
+      barf("tool '%s' not installed (%s) (%s)", toolname, toolfile, strerror(*__error()));
    }
 
    VG_(debugLog)(1, "launcher", "launching %s\n", toolfile);
@@ -419,7 +419,7 @@ int main(int argc, char** argv, char** envp)
    execve(toolfile, new_argv, new_env);
 
    fprintf(stderr, "valgrind: failed to start tool '%s' for platform '%s-darwin': %s\n",
-                   toolname, arch, strerror(errno));
+                   toolname, arch, strerror(*__error()));
 
    exit(1);
 }
