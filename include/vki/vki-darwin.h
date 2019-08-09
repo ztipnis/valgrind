@@ -39,7 +39,7 @@
 #include <sys/filio.h>
 #include <sys/sockio.h>
 #include <net/bpf.h>
-//#include <pthread.h>
+#include <pthread.h>
 #include <sys/signal.h>
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 #ifndef user64_sigaltstack
