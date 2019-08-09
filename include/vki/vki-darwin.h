@@ -1115,13 +1115,7 @@ struct ByteRangeLockPB2
 #endif
 
 
-struct sigevent {
-   int                             sigev_notify;                           /* Notification type */
-   int                             sigev_signo;                            /* Signal number */
-   union sigval    sigev_value;                            /* Signal value */
-   void                    (*sigev_notify_function)(union sigval);   /* Notification function */
-   pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
-};
+extern struct sigevent;
 #include <sys/aio.h>
 
 #define vki_aiocb aiocb
