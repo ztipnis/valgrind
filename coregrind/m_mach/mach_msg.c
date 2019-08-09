@@ -45,6 +45,7 @@
 #include <mach/mach.h>
 #include <mach/port.h>
 #include <mach/message.h>
+#include <kern/ipc_mig.h>
 
 #define LIBMACH_OPTIONS (MACH_SEND_INTERRUPT|MACH_RCV_INTERRUPT)
 
@@ -110,7 +111,14 @@ mach_msg_destroy(mach_msg_header_t *msg)
   // TODO: maybe copy from XNU?
 }
 
-#endif // defined(VGO_darwin)
+void
+  mach_msg_destroy(mach_msg_header_t *msg)
+  {
+    mach_msg_destroy_from_kernel_proper(msg);
+  }
+
+
+#endif // defined(VGO_darwin) 
 
 /*--------------------------------------------------------------------*/
 /*--- end                                                          ---*/
