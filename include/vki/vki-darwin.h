@@ -64,8 +64,7 @@
 #include <sys/aio.h>
 #include <netinet/tcp.h>
 #include <netinet/in.h>
-#undef
-#include <sys/kernel_types.h>
+//#include <sys/kernel_types.h>
 /*--------------------------------------------------------------------*/
 /*--- Darwin-specific kernel interface.               vki-darwin.h ---*/
 /*--------------------------------------------------------------------*/
