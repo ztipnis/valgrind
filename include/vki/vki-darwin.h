@@ -1,4 +1,7 @@
+#define mach_port_t _mach_port_t_
 #include <pthread.h>
+#undef mach_port_t
+typedef __darwin_mach_port_t mach_port_t;
 #include <sys/signal.h>
 struct sigevent_valg {
    int                             sigev_notify;                           /* Notification type */
