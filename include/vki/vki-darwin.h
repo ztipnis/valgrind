@@ -1,4 +1,55 @@
 
+#include <stdint.h>
+#include <sys/types.h>
+#include <malloc/malloc.h>
+#include <sys/time.h>
+#include <sys/stat.h>
+#include <sys/dirent.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <netinet/in.h>
+#include <net/if.h>
+#include <sys/fcntl.h>
+#include <sys/mman.h>
+#include <mach/vm_param.h>
+#include <sys/vmparam.h>
+#include <mach/mach_time.h>
+#include <sys/syslimits.h>
+#include <sys/param.h>
+#include <sys/errno.h>
+#include <sys/resource.h>
+#include <sys/poll.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+#include <sys/semaphore.h>
+#include <sys/mount.h>
+#include <sys/select.h>
+#include <sys/msgbuf.h>
+#include <sys/shm.h>
+#include <sys/times.h>
+#include <sys/utsname.h>
+#include <sys/unistd.h>
+#include <sys/sysctl.h>
+#include <sys/attr.h>
+#include <sys/event.h>
+#include <sys/ev.h>
+#include <sys/acl.h>
+#include <sys/ptrace.h>
+#include <sys/ttycom.h>
+#include <sys/filio.h>
+#include <sys/sockio.h>
+#include <sys/dtrace.h>
+#include <net/bpf.h>
+#include <pthread.h>
+#include <sys/signal.h>
+#include <sys/ucontext.h>
+#include <sys/termios.h>
+#include <uuid/uuid.h>
+#include <bsm/audit.h>
+#include <sys/aio.h>
+#include <netinet/tcp.h>
+#include <netinet/in.h>
+#include <sys/kernel_types.h>
 /*--------------------------------------------------------------------*/
 /*--- Darwin-specific kernel interface.               vki-darwin.h ---*/
 /*--------------------------------------------------------------------*/
@@ -38,7 +89,7 @@
 #define _XOPEN_SOURCE 0500
 #endif
 
-#include <stdint.h>
+
 
 #define vki_int8_t int8_t
 #define vki_uint8_t uint8_t
@@ -51,7 +102,7 @@
 #define vki_intptr_t intptr_t
 #define vki_uintptr_t uintptr_t
 
-#include <sys/types.h>
+
 
 #define vki_dev_t dev_t
 #define vki_mode_t mode_t
@@ -101,12 +152,12 @@ typedef uint32_t vki_u32;
 #define _VKI_IOC_WRITE		IOC_IN
 
 
-#include <malloc/malloc.h>
+
 
 #define vki_malloc_zone_t malloc_zone_t
 
 
-#include <sys/time.h>
+
 
 #define vki_timeval timeval
 #define vki_timeval32 timeval32
@@ -117,7 +168,7 @@ typedef uint32_t vki_u32;
 #define vki_timezone timezone
 
 
-#include <sys/stat.h>
+
 
 #define	VKI_S_ISBLK(m)	S_ISBLK(m)
 #define	VKI_S_ISCHR(m)	S_ISCHR(m)
@@ -156,13 +207,13 @@ typedef uint32_t vki_u32;
 #define st_ctime_nsec st_ctimespec.tv_nsec
 
 
-#include <sys/dirent.h>
+
 
 #define VKI_MAXNAMLEN MAXNAMLEN
 #define vki_dirent dirent
 
 
-#include <sys/socket.h>
+
 #define	VKI_SOCK_STREAM	SOCK_STREAM
 #define	VKI_SOCK_DGRAM	SOCK_DGRAM
 #define	VKI_SOCK_RAW	SOCK_RAW
@@ -207,12 +258,12 @@ typedef uint32_t vki_u32;
 #define	VKI_SCM_CREDS		SCM_CREDS
 
 
-#include <sys/un.h>
+
 
 #define vki_sockaddr_un sockaddr_un
 
 
-#include <netinet/in.h>
+
 
 #define vki_in_addr_t in_addr_t
 #define vki_in_port_t in_port_t
@@ -228,7 +279,7 @@ typedef uint32_t vki_u32;
 #define vki_sockaddr_in6 sockaddr_in6
 
 
-#include <net/if.h>
+
 
 #define	VKI_IFNAMSIZ	IFNAMSIZ
 
@@ -252,7 +303,7 @@ typedef uint32_t vki_u32;
 #define vki_ifc_req 	ifc_req
 
 
-#include <sys/fcntl.h>
+
 
 #define	VKI_SEEK_SET	SEEK_SET
 #define	VKI_SEEK_CUR	SEEK_CUR
@@ -336,7 +387,7 @@ typedef uint32_t vki_u32;
 #define VKI_CS_OPS_PIDPATH          4       /* get executable's pathname */
 #define VKI_CS_OPS_CDHASH           5       /* get code directory hash */
 
-#include <sys/mman.h>
+
 
 #define	VKI_PROT_NONE	PROT_NONE
 #define	VKI_PROT_READ	PROT_READ
@@ -356,30 +407,30 @@ typedef uint32_t vki_u32;
 #define VKI_MAP_FAILED	MAP_FAILED
 
 
-#include <mach/vm_param.h>
+
 
 #define VKI_PAGE_SHIFT PAGE_SHIFT
 #define VKI_PAGE_SIZE PAGE_SIZE
 #define VKI_PAGE_MASK PAGE_MASK
 
 
-#include <sys/vmparam.h>
+
 
 #define VKI_USRSTACK USRSTACK
 #define VKI_USRSTACK64 USRSTACK64
 
 
-#include <mach/mach_time.h>
+
 
 #define vki_mach_timebase_info mach_timebase_info
 
 
-#include <sys/syslimits.h>
+
 
 #define VKI_PATH_MAX PATH_MAX
 
 
-#include <sys/param.h>
+
 
 #define VKI_MAXPATHLEN MAXPATHLEN
 
@@ -538,7 +589,7 @@ typedef
 #define VKI_UC_RESET_ALT_STACK 0x80000000
 
 
-#include <sys/errno.h>
+
 
 #define VKI_EPERM		EPERM
 #define VKI_ENOENT		ENOENT
@@ -646,7 +697,7 @@ typedef
 #define VKI_ELAST		ELAST
 
 
-#include <sys/resource.h>
+
 
 #define	VKI_RLIMIT_CPU		RLIMIT_CPU
 #define	VKI_RLIMIT_FSIZE	RLIMIT_FSIZE
@@ -665,12 +716,12 @@ typedef
 #define vki_rusage rusage
 
 
-#include <sys/poll.h>
+
 
 #define vki_pollfd pollfd
 
 
-#include <sys/ipc.h>
+
 
 #define	VKI_IPC_RMID	IPC_RMID
 #define	VKI_IPC_SET	IPC_SET
@@ -680,7 +731,7 @@ typedef
 #define vki_ipc_perm ipc_perm
 
 
-#include <sys/sem.h>
+
 
 #define VKI_GETNCNT	GETNCNT
 #define VKI_GETPID	GETPID
@@ -695,12 +746,12 @@ typedef
 #define vki_semun semun
 
 
-#include <sys/semaphore.h>
+
 
 #define vki_sem_t sem_t
 
 
-#include <sys/mount.h>
+
 
 #define	VKI_MFSNAMELEN	MFSNAMELEN
 #define	VKI_MNAMELEN	MNAMELEN
@@ -711,19 +762,19 @@ typedef
 #define vki_statfs64 statfs64
 
 
-#include <sys/select.h>
+
 
 #define vki_fd_set fd_set
 
 
-#include <sys/msgbuf.h>
+
 
 #define	VKI_MSG_BSIZE	MSG_BSIZE
 #define VKI_MSG_MAGIC	MSG_MAGIC
 #define vki_msgbuf msgbuf
 
 
-#include <sys/shm.h>
+
 
 #define VKI_SHM_RDONLY	SHM_RDONLY
 #define VKI_SHM_RND	SHM_RND
@@ -732,18 +783,18 @@ typedef
 #define vki_shmid_ds shmid_ds
 
 
-#include <sys/times.h>
+
 
 #define vki_tms tms
 
 
-#include <sys/utsname.h>
+
 
 #define	_VKI_SYS_NAMELEN	_SYS_NAMELEN
 #define vki_new_utsname utsname
 
 
-#include <sys/unistd.h>
+
 
 #define	VKI_F_OK	F_OK
 #define	VKI_X_OK	X_OK
@@ -753,7 +804,7 @@ typedef
 #define vki_accessx_descriptor         accessx_descriptor
 #define VKI_ACCESSX_MAX_DESCRIPTORS    ACCESSX_MAX_DESCRIPTORS
 
-#include <sys/sysctl.h>
+
 
 #define VKI_CTL_MAXNAME		CTL_MAXNAME
 
@@ -799,12 +850,12 @@ typedef
 #define	VKI_KERN_USRSTACK64	KERN_USRSTACK64
 
 
-#include <sys/attr.h>
+
 
 #define vki_attrlist attrlist
 
 
-#include <sys/event.h>
+
 
 #define vki_kevent kevent
 #define vki_kevent64 kevent64_s
@@ -823,17 +874,17 @@ struct vki_kevent_qos_s {
 	uint64_t    ext[4];     /* filter-specific extensions */
 };
 
-#include <sys/ev.h>
+
 
 typedef struct eventreq vki_eventreq;
 
 
-#include <sys/acl.h>
+
 
 #define vki_kauth_filesec kauth_filesec
 
 
-#include <sys/ptrace.h>
+
 
 #define VKI_PTRACE_TRACEME   PT_TRACE_ME
 #define VKI_PTRACE_DETACH    PT_DETACH
@@ -877,7 +928,7 @@ struct ByteRangeLockPB2
 #define VKI_WQOPS_SHOULD_NARROW              512  /* checks whether we should narrow our concurrency */
 
 
-#include <sys/ttycom.h>
+
 
 #define vki_winsize winsize
 
@@ -932,7 +983,7 @@ struct ByteRangeLockPB2
 #define VKI_TIOCPTYUNLK	TIOCPTYUNLK
 
 
-#include <sys/filio.h>
+
 
 #define	VKI_FIOCLEX	FIOCLEX
 #define	VKI_FIONCLEX	FIONCLEX
@@ -944,7 +995,7 @@ struct ByteRangeLockPB2
 #define	VKI_FIODTYPE	FIODTYPE
 
 
-#include <sys/sockio.h>
+
 
 #define	VKI_SIOCSHIWAT	SIOCSHIWAT
 #define	VKI_SIOCGHIWAT	SIOCGHIWAT
@@ -1022,13 +1073,13 @@ struct ByteRangeLockPB2
 #define	VKI_SIOCSIFASYNCMAP 	SIOCSIGASYNCMAP
 
 
-#include <sys/dtrace.h>
+
 
 #define VKI_DTRACEHIOC_REMOVE   DTRACEHIOC_REMOVE
 #define VKI_DTRACEHIOC_ADDDOF   DTRACEHIOC_ADDDOF
 
 
-#include <net/bpf.h>
+
 
 #define vki_bpf_program bpf_program
 #define vki_bf_len bf_len
@@ -1047,8 +1098,8 @@ struct ByteRangeLockPB2
 
 
 //the types are all stored here
-#include <pthread.h>
-#include <sys/signal.h>
+
+
 
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 #ifndef user64_sigaltstack
@@ -1067,24 +1118,24 @@ struct ByteRangeLockPB2
 #endif
 
 //it was needed for this file, so now its there!
-#include <sys/ucontext.h>
+
 
 /* quite why sys/ucontext.h provides a 'struct __darwin_ucontext'
    but no 'struct ucontext' beats me. -- JRS */
 #define vki_ucontext __darwin_ucontext
 
 
-#include <sys/termios.h>
+
 
 #define vki_termios termios
 
 
-#include <uuid/uuid.h>
+
 
 #define vki_uuid_t uuid_t
 
 
-#include <bsm/audit.h>
+
 
 #define	VKI_A_GETPOLICY	A_GETPOLICY
 #define	VKI_A_SETPOLICY	A_SETPOLICY
@@ -1116,17 +1167,17 @@ struct ByteRangeLockPB2
 
 
 extern struct sigevent;
-#include <sys/aio.h>
+
 
 #define vki_aiocb aiocb
 
 
-#include <netinet/tcp.h>
+
 
 #define VKI_TCP_NODELAY  TCP_NODELAY
 
 
-#include <netinet/in.h>
+
 
 #define VKI_IPPROTO_TCP  IPPROTO_TCP
 
