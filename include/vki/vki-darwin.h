@@ -38,7 +38,6 @@
 #include <sys/ttycom.h>
 #include <sys/filio.h>
 #include <sys/sockio.h>
-#include <sys/dtrace.h>
 #include <net/bpf.h>
 //#include <pthread.h>
 #include <sys/signal.h>
@@ -65,6 +64,7 @@
 #include <netinet/tcp.h>
 #include <netinet/in.h>
 #include <sys/kernel_types.h>
+#include <sys/dtrace.h>
 /*--------------------------------------------------------------------*/
 /*--- Darwin-specific kernel interface.               vki-darwin.h ---*/
 /*--------------------------------------------------------------------*/
