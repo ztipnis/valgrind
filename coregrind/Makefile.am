@@ -504,6 +504,10 @@ libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = $(LTO_CFLAGS) \
     $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+if VGCONF_OS_IS_DARWIN
+	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS = -I[[kern]]/
+endif
+
 if ENABLE_LINUX_TICKET_LOCK_PRIMARY
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES += \
     m_scheduler/ticket-lock-linux.c
