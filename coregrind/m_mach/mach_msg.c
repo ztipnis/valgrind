@@ -42,7 +42,7 @@
 #include "pub_core_basics.h"
 #include "pub_core_mach.h"
 
-#include <mack/mach.h>
+#include <mach/mach.h>
 #include <mach/port.h>
 #include <mach/message.h>
 #include <kern/ipc_mig.h>
