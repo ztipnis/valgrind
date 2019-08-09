@@ -40,7 +40,7 @@
 #include <sys/sockio.h>
 #include <sys/dtrace.h>
 #include <net/bpf.h>
-#include <pthread.h>
+//#include <pthread.h>
 #include <sys/signal.h>
 // sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 #ifndef user64_sigaltstack
@@ -64,7 +64,7 @@
 #include <sys/aio.h>
 #include <netinet/tcp.h>
 #include <netinet/in.h>
-//#include <sys/kernel_types.h>
+#include <sys/kernel_types.h>
 /*--------------------------------------------------------------------*/
 /*--- Darwin-specific kernel interface.               vki-darwin.h ---*/
 /*--------------------------------------------------------------------*/
