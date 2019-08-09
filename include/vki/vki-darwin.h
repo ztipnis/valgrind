@@ -65,14 +65,14 @@
 #include <sys/kernel_types.h>
 #include <sys/dtrace.h>
 
-struct sigevent-valg {
+struct sigevent_valg {
    int                             sigev_notify;                           /* Notification type */
    int                             sigev_signo;                            /* Signal number */
    union sigval    sigev_value;                            /* Signal value */
    void                    (*sigev_notify_function)(union sigval);   /* Notification function */
    pthread_attr_t  *sigev_notify_attributes;       /* Notification attributes */
 };
-#define sigevent sigevent-valg
+#define sigevent sigevent_valg
 #include <sys/aio.h>
 #undef sigevent
 /*--------------------------------------------------------------------*/
