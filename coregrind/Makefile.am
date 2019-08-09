@@ -88,6 +88,7 @@ if VGCONF_OS_IS_DARWIN
 # fully supported on MacOS. Till we find someone courageous
 # having access to Darwin, 'none' implementation is used.
 vgdb_SOURCES += vgdb-invoker-none.c
+valgrind_CFLAGS += -I[[kern]]/
 endif
 if VGCONF_OS_IS_SOLARIS
 vgdb_SOURCES += vgdb-invoker-solaris.c
@@ -160,7 +161,9 @@ mach_defs += \
 	/usr/include/mach/mach_vm.defs \
         /usr/include/mach/task.defs \
         /usr/include/mach/thread_act.defs \
-        /usr/include/mach/vm_map.defs
+        /usr/include/mach/vm_map.defs \
+        /usr/include/mach/mach_types.defs
+
 endif
 
 # Be careful w.r.t. parallel builds.  See section 27.9 of the automake info
