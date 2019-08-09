@@ -105,11 +105,6 @@ mach_msg(msg, option, send_size, rcv_size, rcv_name, timeout, notify)
 	return mr;
 }
 
-void
-mach_msg_destroy(mach_msg_header_t *msg)
-{
-  // TODO: maybe copy from XNU?
-}
 
 void mach_msg_destroy(mach_msg_header_t *msg)
   {
