@@ -32,7 +32,6 @@
 
 #include <assert.h>
 #include <ctype.h>
-#include <errno.h>
 #include <fcntl.h>
 #include <libgen.h>
 #include <stdarg.h>
@@ -44,6 +43,7 @@
 #include <sys/stat.h>
 #include <sys/user.h>
 #include <unistd.h>
+#include <errno.h>
 #include <mach-o/fat.h>
 #include <mach-o/loader.h>
 
