@@ -43,7 +43,6 @@
 #include <sys/stat.h>
 #include <sys/user.h>
 #include <unistd.h>
-#include <errno.h>
 #include <mach-o/fat.h>
 #include <mach-o/loader.h>
 
@@ -51,6 +50,8 @@
 #include "pub_core_vki.h"       // Avoids warnings from pub_core_libcfile.h
 #include "pub_core_libcproc.h"  // For VALGRIND_LIB, VALGRIND_LAUNCHER
 #include "pub_core_ume.h"
+
+#include <errno.h>
 
 static struct {
    cpu_type_t cputype;
@@ -148,7 +149,7 @@ static const char *select_arch(
    ssize_t bytes;
    int fd = open(find_client(clientname), O_RDONLY);
    if (fd < 0) {
-      barf("%s: %s", clientname, strerror(*__error()));
+      barf("%s: %s", clientname, strerror(__error()));
    }
 
    bytes = read(fd, buf, sizeof(buf));
@@ -411,7 +412,7 @@ int main(int argc, char** argv, char** envp)
    /* Build the stage2 invocation, and execve it.  Bye! */
    asprintf(&toolfile, "%s/%s-%s-darwin", valgrind_lib, toolname, arch);
    if (access(toolfile, R_OK|X_OK) != 0) {
-      barf("tool '%s' not installed (%s) (%s)", toolname, toolfile, strerror(*__error()));
+      barf("tool '%s' not installed (%s) (%s)", toolname, toolfile, strerror(__error()));
    }
 
    VG_(debugLog)(1, "launcher", "launching %s\n", toolfile);
@@ -419,7 +420,7 @@ int main(int argc, char** argv, char** envp)
    execve(toolfile, new_argv, new_env);
 
    fprintf(stderr, "valgrind: failed to start tool '%s' for platform '%s-darwin': %s\n",
-                   toolname, arch, strerror(*__error()));
+                   toolname, arch, strerror(__error()));
 
    exit(1);
 }
