@@ -1046,15 +1046,10 @@ struct ByteRangeLockPB2
 #define VKI_BIOCGDLTLIST    BIOCGDLTLIST
 
 // Apparently  sigaltstack is missing from modern darwin kernels?
-struct  user32_sigaltstack {
-   user32_addr_t  ss_sp;      /* signal stack base */
-   user32_size_t  ss_size; /* signal stack length */
-   int          ss_flags;  /* SA_DISABLE and/or SA_ONSTACK */
-};
 
 struct  user64_sigaltstack {
-   user64_addr_t  ss_sp;      /* signal stack base */
-   user64_size_t  ss_size; /* signal stack length */
+   user_addr_t  ss_sp;      /* signal stack base */
+   user_size_t  ss_size; /* signal stack length */
    int      ss_flags;   /* SA_DISABLE and/or SA_ONSTACK */
 };
 
