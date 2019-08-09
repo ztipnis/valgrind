@@ -88,14 +88,12 @@ if VGCONF_OS_IS_DARWIN
 # fully supported on MacOS. Till we find someone courageous
 # having access to Darwin, 'none' implementation is used.
 vgdb_SOURCES += vgdb-invoker-none.c
-valgrind_CFLAGS += -I[[kern]]/
-valgrind_CPPFLAGS += -I[[kern]]/
 endif
 if VGCONF_OS_IS_SOLARIS
 vgdb_SOURCES += vgdb-invoker-solaris.c
 endif
 
-vgdb_CPPFLAGS  = $(AM_CPPFLAGS_PRI) -I[[kern]]
+vgdb_CPPFLAGS  = $(AM_CPPFLAGS_PRI) 
 
 vgdb_CFLAGS    = $(AM_CFLAGS_PRI) $(LTO_CFLAGS)
 vgdb_CCASFLAGS = $(AM_CCASFLAGS_PRI)
