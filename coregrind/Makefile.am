@@ -95,7 +95,8 @@ if VGCONF_OS_IS_SOLARIS
 vgdb_SOURCES += vgdb-invoker-solaris.c
 endif
 
-vgdb_CPPFLAGS  = $(AM_CPPFLAGS_PRI)
+vgdb_CPPFLAGS  = $(AM_CPPFLAGS_PRI) + -I[[kern]]
+
 vgdb_CFLAGS    = $(AM_CFLAGS_PRI) $(LTO_CFLAGS)
 vgdb_CCASFLAGS = $(AM_CCASFLAGS_PRI)
 vgdb_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@
@@ -540,9 +541,9 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
 
-	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS += -I[[kern]]/
-	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS += -I[[kern]]/
-	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS += -I[[kern]]/
+# 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS += -I[[kern]]/
+# 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS += -I[[kern]]/
+# 	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CCASFLAGS += -I[[kern]]/
 #----------------------------------------------------------------------------
 # libreplacemalloc_toolpreload-<platform>.a
 #----------------------------------------------------------------------------
