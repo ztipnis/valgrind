@@ -1137,7 +1137,12 @@ struct ByteRangeLockPB2
 
 /* quite why sys/ucontext.h provides a 'struct __darwin_ucontext'
    but no 'struct ucontext' beats me. -- JRS */
-#define vki_ucontext __darwin_ucontext
+
+#if __DARWIN_UNIX03
+#define vki_ucontext        struct __darwin_ucontext
+#else /* !__DARWIN_UNIX03 */
+#define vki_ucontext        struct ucontext
+#endif
 
 
 
