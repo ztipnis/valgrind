@@ -384,7 +384,6 @@ typedef uint32_t vki_u32;
 #define VKI_MAXPATHLEN MAXPATHLEN
 
 
-#include <sys/signal.h>
 
 /* While we fully intend to make 'vki_sigset_t' match the native
    Darwin 'sigset_t', we can't just clone the Darwin sigset_t type,
@@ -1045,13 +1044,14 @@ struct ByteRangeLockPB2
 #define VKI_BIOCSRTIMEOUT   BIOCSRTIMEOUT
 #define VKI_BIOCGDLTLIST    BIOCGDLTLIST
 
-// sigaltstack user thingy doenst exist but the darwin sigaltstack works.
 
-#define user64_sigaltstack __darwin_sigaltstack
-#define user32_sigaltstack __darwin_sigaltstack
+
 //the types are all stored here
 #include <sys/signal.h>
 
+// sigaltstack user thingy doenst exist but the darwin sigaltstack works.
+#define user64_sigaltstack _STRUCT_SIGALTSTACK
+#define user32_sigaltstack _STRUCT_SIGALTSTACK
 //it was needed for this file, so now its there!
 #include <sys/ucontext.h>
 
