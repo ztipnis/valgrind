@@ -42,6 +42,21 @@
 #include <net/bpf.h>
 #include <pthread.h>
 #include <sys/signal.h>
+// sigaltstack user thingy doenst exist but the darwin sigaltstack works.
+#ifndef user64_sigaltstack
+   #if __DARWIN_UNIX03
+      #define user64_sigaltstack  __darwin_sigaltstack
+   #else /* !__DARWIN_UNIX03 */
+      #define user64_sigaltstack  sigaltstack
+   #endif /* __DARWIN_UNIX03 */
+#endif
+#ifndef user32_sigaltstack
+   #if __DARWIN_UNIX03
+      #define user32_sigaltstack  __darwin_sigaltstack
+   #else /* !__DARWIN_UNIX03 */
+      #define user32_sigaltstack  sigaltstack
+   #endif /* __DARWIN_UNIX03 */
+#endif
 #include <sys/ucontext.h>
 #include <sys/termios.h>
 #include <uuid/uuid.h>
@@ -49,6 +64,7 @@
 #include <sys/aio.h>
 #include <netinet/tcp.h>
 #include <netinet/in.h>
+#undef
 #include <sys/kernel_types.h>
 /*--------------------------------------------------------------------*/
 /*--- Darwin-specific kernel interface.               vki-darwin.h ---*/
@@ -1101,21 +1117,6 @@ struct ByteRangeLockPB2
 
 
 
-// sigaltstack user thingy doenst exist but the darwin sigaltstack works.
-#ifndef user64_sigaltstack
-   #if __DARWIN_UNIX03
-      #define user64_sigaltstack  __darwin_sigaltstack
-   #else /* !__DARWIN_UNIX03 */
-      #define user64_sigaltstack  sigaltstack
-   #endif /* __DARWIN_UNIX03 */
-#endif
-#ifndef user32_sigaltstack
-   #if __DARWIN_UNIX03
-      #define user32_sigaltstack  __darwin_sigaltstack
-   #else /* !__DARWIN_UNIX03 */
-      #define user32_sigaltstack  sigaltstack
-   #endif /* __DARWIN_UNIX03 */
-#endif
 
 //it was needed for this file, so now its there!
 
