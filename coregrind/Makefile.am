@@ -504,9 +504,6 @@ libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = $(LTO_CFLAGS) \
     $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
-if VGCONF_OS_IS_DARWIN
-	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS = -I[[kern]]/
-endif
 
 if ENABLE_LINUX_TICKET_LOCK_PRIMARY
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES += \
@@ -542,6 +539,9 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
 
+if VGCONF_OS_IS_DARWIN
+	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CPPFLAGS += -I[[kern]]/
+endif
 #----------------------------------------------------------------------------
 # libreplacemalloc_toolpreload-<platform>.a
 #----------------------------------------------------------------------------
@@ -750,7 +750,7 @@ if VGCONF_OS_IS_DARWIN
 
 BUILT_SOURCES += fixup_macho_loadcmds
 fixup_macho_loadcmds: fixup_macho_loadcmds.c
-	$(CC) -I$(top_srcdir) -I$(top_builddir) -g -Wall -o $@ $<
+	$(CC) -I$(top_srcdir) -I$(top_builddir) -I[[kern]]/ -g -Wall -o $@ $<
 
 CLEANFILES += fixup_macho_loadcmds
 
