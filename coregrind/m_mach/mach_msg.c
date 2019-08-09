@@ -42,8 +42,10 @@
 #include "pub_core_basics.h"
 #include "pub_core_mach.h"
 
+#include <mack/mach.h>
 #include <mach/port.h>
 #include <mach/message.h>
+#include <kern/ipc_mig.h>
 
 #define LIBMACH_OPTIONS (MACH_SEND_INTERRUPT|MACH_RCV_INTERRUPT)
 
@@ -102,6 +104,13 @@ mach_msg(msg, option, send_size, rcv_size, rcv_name, timeout, notify)
 
     return mr;
 }
+
+void
+  mach_msg_destroy(mach_msg_header_t *msg)
+  {
+    mach_msg_destroy_from_kernel_proper(msg);
+  }
+
 
 #endif // defined(VGO_darwin) 
 
