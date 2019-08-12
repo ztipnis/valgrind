@@ -475,11 +475,11 @@ noinst_LIBRARIES = libnolto_coregrind-@VGCONF_ARCH_PRI@-@VGCONF_OS@.a
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES = \
     $(NOLTO_COREGRIND_SOURCES_COMMON)
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS = \
-    $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -F [[kern]]/../ -framework Kernel.framework -l:../darwin-kernel/Products/libdarwin-kernel.a
+    $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -l:./darwin-kernel/Products/libdarwin-kernel.a
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = \
-    $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -F [[kern]]/../ -framework Kernel.framework -l:../darwin-kernel/Products/libdarwin-kernel.a
+    $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -l:./darwin-kernel/Products/libdarwin-kernel.a
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
-    $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -F [[kern]]/../ -framework Kernel.framework -l:../darwin-kernel/Products/libdarwin-kernel.a
+    $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -l:./darwin-kernel/Products/libdarwin-kernel.a
 
 if VGCONF_HAVE_PLATFORM_SEC
 noinst_LIBRARIES += libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
