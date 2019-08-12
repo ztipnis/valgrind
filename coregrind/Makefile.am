@@ -475,11 +475,11 @@ noinst_LIBRARIES = libnolto_coregrind-@VGCONF_ARCH_PRI@-@VGCONF_OS@.a
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES = \
     $(NOLTO_COREGRIND_SOURCES_COMMON)
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS = \
-    $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -F [[kern]]/../ -framework Kernel
+    $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -F [[kern]]/../ -framework Kernel
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = \
-    $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -F [[kern]]/../ -framework Kernel
+    $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -F [[kern]]/../ -framework Kernel
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
-    $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ -F [[kern]]/../ -framework Kernel
+    $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -F [[kern]]/../ -framework Kernel
 
 if VGCONF_HAVE_PLATFORM_SEC
 noinst_LIBRARIES += libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
