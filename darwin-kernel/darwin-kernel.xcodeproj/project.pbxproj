@@ -10,7 +10,7 @@
 		2948657122FDC31B001391B0 /* darwin_kernel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 2948657022FDC31B001391B0 /* darwin_kernel.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		2948657C22FDC3D3001391B0 /* darwin_kernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2948657B22FDC3D3001391B0 /* darwin_kernel.cpp */; };
 		2948657F22FDC408001391B0 /* Kernel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948657E22FDC408001391B0 /* Kernel.framework */; };
-		2958940A2301F81700EADCFF /* libdarwin-kernel.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2948656D22FDC31B001391B0 /* libdarwin-kernel.a */; };
+		2958940A2301F81700EADCFF /* libdarwin-kernel.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2948656D22FDC31B001391B0 /* libdarwin-kernel.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
