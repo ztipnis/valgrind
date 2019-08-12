@@ -480,8 +480,8 @@ libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = \
     $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/
-noinst_LDADD = ../darwin-kernel/Products/libdarwin-kernel.a
-noinst_LIBADD = ../darwin-kernel/Products/libdarwin-kernel.a
+libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LDADD = ../darwin-kernel/Products/libdarwin-kernel.a
+libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LIBADD = ../darwin-kernel/Products/libdarwin-kernel.a
 
 if VGCONF_HAVE_PLATFORM_SEC
 noinst_LIBRARIES += libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
@@ -506,8 +506,6 @@ libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = $(LTO_CFLAGS) \
     $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
-libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LDADD = \
-	../darwin-kernel/Products/libdarwin-kernel.a
 
 if ENABLE_LINUX_TICKET_LOCK_PRIMARY
 libcoregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES += \
