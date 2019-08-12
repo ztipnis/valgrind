@@ -480,10 +480,9 @@ libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = \
     $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/
-
-if VGCONF_OS_IS_DARWIN
 noinst_LDDADD = ../darwin-kernel/Products/libdarwin-kernel.a
-endif
+noinst_LIBADD = ../darwin-kernel/Products/libdarwin-kernel.a
+
 if VGCONF_HAVE_PLATFORM_SEC
 noinst_LIBRARIES += libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 libnolto_coregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_SOURCES = \
@@ -539,10 +538,8 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS += \
     -DENABLE_LINUX_TICKET_LOCK
 endif
 libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LIBADD = \
-    $(libnolto_coregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_OBJECTS)
-if VGCONF_OS_IS_DARWIN
-	libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LIBADD += ../darwin-kernel/Products/libdarwin-kernel.a
-endif
+    $(libnolto_coregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_OBJECTS)\
+    ../darwin-kernel/Products/libdarwin-kernel.a
 libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
