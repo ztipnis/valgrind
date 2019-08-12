@@ -482,7 +482,7 @@ libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/
 
 if VGCONF_OS_IS_DARWIN
-noinst_LDDADD += ../darwin-kernel/Products/libdarwin-kernel.a
+noinst_LDDADD = ../darwin-kernel/Products/libdarwin-kernel.a
 endif
 if VGCONF_HAVE_PLATFORM_SEC
 noinst_LIBRARIES += libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
