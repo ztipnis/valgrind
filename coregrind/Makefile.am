@@ -58,6 +58,7 @@ valgrind_CPPFLAGS  = $(AM_CPPFLAGS_PRI)
 valgrind_CFLAGS    = $(AM_CFLAGS_PRI) $(LTO_CFLAGS)
 valgrind_CCASFLAGS = $(AM_CCASFLAGS_PRI)
 valgrind_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@
+valgrind_LDADD     = ../darwin-kernel/Products/libdarwin-kernel.a
 # If there is no secondary platform, and the platforms include x86-darwin,
 # then the primary platform must be x86-darwin.  Hence:
 if ! VGCONF_HAVE_PLATFORM_SEC
