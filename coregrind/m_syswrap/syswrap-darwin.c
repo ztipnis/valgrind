@@ -1551,9 +1551,6 @@ static const HChar *name_for_fcntl(UWord cmd) {
 #     if DARWIN_VERS >= DARWIN_10_14
 	  F(F_CHECK_LV);
 #     endif
-#     if DARWIN_VERS >= DARWIN_10_14
-      F(F_CHECK_LV);
-#     endif
    default:
 	  return "UNKNOWN";
    }
