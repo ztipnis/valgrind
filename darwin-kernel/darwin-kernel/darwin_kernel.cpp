@@ -8,6 +8,6 @@
 
 #include "darwin_kernel.hpp"
 
-void mach_msg_destroy(mach_msg_header_t *msg){
+void proxy_mach_msg_destroy(mach_msg_header_t *msg){
     mach_msg_destroy_from_kernel_proper(msg);
 }

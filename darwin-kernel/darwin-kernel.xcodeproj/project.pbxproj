@@ -10,7 +10,21 @@
 		2948657122FDC31B001391B0 /* darwin_kernel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 2948657022FDC31B001391B0 /* darwin_kernel.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		2948657C22FDC3D3001391B0 /* darwin_kernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2948657B22FDC3D3001391B0 /* darwin_kernel.cpp */; };
 		2948657F22FDC408001391B0 /* Kernel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2948657E22FDC408001391B0 /* Kernel.framework */; };
+		2958940A2301F81700EADCFF /* libdarwin-kernel.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2948656D22FDC31B001391B0 /* libdarwin-kernel.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		295894092301F7E600EADCFF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${PROJECT_DIR}/Products";
+			dstSubfolderSpec = 0;
+			files = (
+				2958940A2301F81700EADCFF /* libdarwin-kernel.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2948656D22FDC31B001391B0 /* libdarwin-kernel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libdarwin-kernel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +100,7 @@
 				2948656922FDC31B001391B0 /* Headers */,
 				2948656A22FDC31B001391B0 /* Sources */,
 				2948656B22FDC31B001391B0 /* Frameworks */,
+				295894092301F7E600EADCFF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -254,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				COPY_HEADERS_RUN_UNIFDEF = YES;
 				DEVELOPMENT_TEAM = 34EV25UXQD;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -268,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				COPY_HEADERS_RUN_UNIFDEF = YES;
 				DEVELOPMENT_TEAM = 34EV25UXQD;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;

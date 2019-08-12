@@ -45,7 +45,7 @@
 #include <mach/mach.h>
 #include <mach/port.h>
 #include <mach/message.h>
-#include <kern/ipc_mig.h>
+#include "./darwin-kernel/darwin-kernel/darwin_kernel.hpp"
 
 #define LIBMACH_OPTIONS (MACH_SEND_INTERRUPT|MACH_RCV_INTERRUPT)
 
@@ -108,7 +108,7 @@ mach_msg(msg, option, send_size, rcv_size, rcv_name, timeout, notify)
 
 void mach_msg_destroy(mach_msg_header_t *msg)
   {
-    mach_msg_destroy_from_kernel_proper(msg);
+      proxy_mach_msg_destroy(msg);
   }
 
 

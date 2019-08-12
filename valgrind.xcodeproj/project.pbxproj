@@ -21,6 +21,13 @@
 			remoteGlobalIDString = 2948656D22FDC31B001391B0;
 			remoteInfo = "darwin-kernel";
 		};
+		295894072301F67200EADCFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 295884C12301EFB500EADCFF /* darwin-kernel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2948656C22FDC31B001391B0;
+			remoteInfo = "darwin-kernel";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -31863,6 +31870,7 @@
 			);
 			buildToolPath = /usr/bin/make;
 			dependencies = (
+				295894082301F67200EADCFF /* PBXTargetDependency */,
 			);
 			name = valgrind;
 			passBuildSettingsInEnvironment = 1;
@@ -31927,6 +31935,14 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXTargetDependency section */
+		295894082301F67200EADCFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "darwin-kernel";
+			targetProxy = 295894072301F67200EADCFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		293DF0C62301EC330098F277 /* Debug */ = {
