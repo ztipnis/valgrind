@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:darwin-kernel/darwin-kernel.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:valgrind.xcodeproj">
    </FileRef>
 </Workspace>

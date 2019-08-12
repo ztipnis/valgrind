@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		293DF0DC2301ED890098F277 /* configure */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 293DF0DD2301ED890098F277 /* Build configuration list for PBXAggregateTarget "configure" */;
+			buildPhases = (
+				293DF0E02301ED8E0098F277 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = configure;
+			productName = configure;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXGroup section */
 		293DF0C12301EC330098F277 = {
 			isa = PBXGroup;
@@ -20,6 +34,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1030;
+				TargetAttributes = {
+					293DF0DC2301ED890098F277 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
 			};
 			buildConfigurationList = 293DF0C52301EC330098F277 /* Build configuration list for PBXProject "valgrind" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -32,9 +51,30 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				293DF0DC2301ED890098F277 /* configure */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		293DF0E02301ED8E0098F277 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		293DF0C62301EC330098F277 /* Debug */ = {
@@ -49,6 +89,24 @@
 			};
 			name = Release;
 		};
+		293DF0DE2301ED890098F277 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34EV25UXQD;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		293DF0DF2301ED890098F277 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 34EV25UXQD;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -57,6 +115,15 @@
 			buildConfigurations = (
 				293DF0C62301EC330098F277 /* Debug */,
 				293DF0C72301EC330098F277 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		293DF0DD2301ED890098F277 /* Build configuration list for PBXAggregateTarget "configure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				293DF0DE2301ED890098F277 /* Debug */,
+				293DF0DF2301ED890098F277 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
