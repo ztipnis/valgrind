@@ -1,4 +1,6 @@
+#define _XOPEN_SOURCE
 #include <stdint.h>
+
 #include <sys/types.h>
 
 #include <malloc/malloc.h>

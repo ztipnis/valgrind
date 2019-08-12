@@ -1,4 +1,4 @@
-
+#define _XOPEN_SOURCE
 /*--------------------------------------------------------------------*/
 /*--- Create/destroy signal delivery frames.                       ---*/
 /*---                                      sigframe-amd64-darwin.c ---*/
