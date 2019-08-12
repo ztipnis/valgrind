@@ -469,16 +469,17 @@ COREGRIND_SOURCES_COMMON = \
 # These objects are added to the libcoregrind library.
 NOLTO_COREGRIND_SOURCES_COMMON = \
 	m_libcsetjmp.c \
+	m_mach/mach_msg.c \
 	m_main.c
 noinst_LIBRARIES = libnolto_coregrind-@VGCONF_ARCH_PRI@-@VGCONF_OS@.a
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_SOURCES = \
     $(NOLTO_COREGRIND_SOURCES_COMMON)
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CPPFLAGS = \
-    $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+    $(AM_CPPFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = \
-    $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+    $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
-    $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@)
+    $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]
 
 if VGCONF_HAVE_PLATFORM_SEC
 noinst_LIBRARIES += libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
