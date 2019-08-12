@@ -1755,13 +1755,6 @@ PRE(fcntl)
 	  // FIXME: Dejan
 	  break;
 #  endif
-
-#  if DARWIN_VERS >= DARWIN_10_14
-   case VKI_F_CHECK_LV: /* Check if Library Validation allows this Mach-O file to be
-                           mapped into the calling process */
-      // FIXME: Dejan
-      break;
-#  endif
    default:
 	  PRINT("fcntl ( %lu, %lu [??] )", ARG1, ARG2);
 	  log_decaying("UNKNOWN fcntl %lu!", ARG2);
