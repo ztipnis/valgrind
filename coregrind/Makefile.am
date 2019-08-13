@@ -541,7 +541,7 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LIBADD = \
 libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
-libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LDFLAGS
+#libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LDFLAGS
 
 #----------------------------------------------------------------------------
 # libreplacemalloc_toolpreload-<platform>.a
