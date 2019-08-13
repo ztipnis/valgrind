@@ -58,7 +58,7 @@ valgrind_CPPFLAGS  = $(AM_CPPFLAGS_PRI)
 valgrind_CFLAGS    = $(AM_CFLAGS_PRI) $(LTO_CFLAGS)
 valgrind_CCASFLAGS = $(AM_CCASFLAGS_PRI)
 valgrind_LDFLAGS   = $(AM_CFLAGS_PRI) @LIB_UBSAN@
-valgrind_LDADD     = ../darwin-kernel/build/Release/libdarwin-kernel.a
+valgrind_LDADD     = ../darwin-kernel/Products/libdarwin-kernel.a
 # If there is no secondary platform, and the platforms include x86-darwin,
 # then the primary platform must be x86-darwin.  Hence:
 if ! VGCONF_HAVE_PLATFORM_SEC
@@ -481,8 +481,8 @@ libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CFLAGS = \
     $(AM_CFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_CCASFLAGS = \
     $(AM_CCASFLAGS_@VGCONF_PLATFORM_PRI_CAPS@) -I[[kern]]/Versions/A/Headers/ 
-#libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LDADD = ../darwin-kernel/build/Release/libdarwin-kernel.a
-libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LIBADD = ../darwin-kernel/build/Release/darwin_kernel.o
+#libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LDADD = ../darwin-kernel/Products/libdarwin-kernel.a
+libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LIBADD = ../darwin-kernel/Products/darwin_kernel.o
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LDFLAGS = -L../darwin-kernel/Products
 libnolto_coregrind_@VGCONF_ARCH_PRI@_@VGCONF_OS@_a_LDLIBS = -ldarwin-kernel
 
@@ -539,7 +539,7 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_CFLAGS += \
     -DENABLE_LINUX_TICKET_LOCK
 endif
 libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LIBADD = \
-    $(libnolto_coregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_OBJECTS) ../darwin-kernel/build/Release/libdarwin-kernel.a
+    $(libnolto_coregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_OBJECTS) ../darwin-kernel/Products/libdarwin-kernel.a
 libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
