@@ -544,6 +544,8 @@ libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_DEPENDENCIES = \
     libnolto_coregrind-@VGCONF_ARCH_SEC@-@VGCONF_OS@.a
 endif
 #libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LDFLAGS
+libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LDFLAGS = -L../darwin-kernel/Products
+libcoregrind_@VGCONF_ARCH_SEC@_@VGCONF_OS@_a_LDLIBS = -ldarwin-kernel
 
 #----------------------------------------------------------------------------
 # libreplacemalloc_toolpreload-<platform>.a
