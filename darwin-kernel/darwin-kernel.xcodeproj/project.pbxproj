@@ -101,6 +101,7 @@
 				2948656A22FDC31B001391B0 /* Sources */,
 				2948656B22FDC31B001391B0 /* Frameworks */,
 				295894092301F7E600EADCFF /* CopyFiles */,
+				29AA94722302F32C00AEFA57 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -141,6 +142,26 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29AA94722302F32C00AEFA57 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd ${PROJECT_DIR}/Products\nar -xv libdarwin-kernel.a darwin_kernel.o\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2948656A22FDC31B001391B0 /* Sources */ = {
