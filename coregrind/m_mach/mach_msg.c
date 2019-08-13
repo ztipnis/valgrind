@@ -108,7 +108,7 @@ mach_msg(msg, option, send_size, rcv_size, rcv_name, timeout, notify)
 
 void mach_msg_destroy(mach_msg_header_t *msg)
   {
-      proxy_mach_msg_destroy(msg);
+      //proxy_mach_msg_destroy(msg);
   }
 
 
