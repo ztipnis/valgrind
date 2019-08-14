@@ -4,21 +4,21 @@ This repository contains a version of Valgrind including a few patches to improv
 
 ## Status
 
-Valgrind now builds on macOS Mojave (tested on 10.14.6).
+Valgrind now builds on macOS Catalina (tested on 10.15[b5]).
 
 ## Usage
 
 In order to use this version, use the following command:
 
 ```
-brew install --HEAD https://raw.githubusercontent.com/sowson/valgrind/master/valgrind.rb
+brew install --HEAD https://raw.githubusercontent.com/zatipnis/valgrind/catalina/valgrind.rb
 ```
 
 In case you already have Valgrind installed, you will need to either `unlink` it first or `reinstall` it.
 
 ## CLion
 
-Valgridn executable:
+Valgrind executable:
 /usr/local/bin/valgrind
 
 Analysis options:
